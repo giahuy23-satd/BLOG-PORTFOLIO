@@ -1,0 +1,997 @@
+/* -----------------------------------
+   RESET & BASE
+----------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-light: #f9fafb;
+  --bg-dark: #121212;
+  --text-light: #222;
+  --text-dark: #ddd;
+  --accent: #007bff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Khi chuyển sang dark mode */
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+/* -----------------------------------
+   HEADER
+----------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}
+
+/* -----------------------------------
+   HERO SECTION
+----------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f8ff, #ffffff);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-avatar {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s;
+}
+
+.hero-avatar:hover {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.highlight {
+  color: #007bff;
+}
+
+.hero-text h1 {
+  color: #0A66C2; /* xanh nổi bật */
+  font-weight: 700;
+}
+
+.hero-text h3 {
+  color: #2C3E50; /* xám đậm, dễ đọc hơn */
+  font-weight: 500;
+}
+
+.hero-text p {
+  color: #2C3E50; /* chữ nội dung chính */
+  line-height: 1.8;
+}
+
+
+.hero-ctas {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn,
+.btn-outline,
+.btn.ghost {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn {
+  background: #007bff;
+  color: white;
+}
+
+.btn:hover {
+  background: #005fcc;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn.ghost {
+  background: #f0f0f0;
+}
+
+.btn.ghost:hover {
+  background: #e0e0e0;
+}
+
+/* -----------------------------------
+   PROJECTS SECTION
+----------------------------------- */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.btn-small {
+  font-size: 0.9rem;
+  background: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-small:hover {
+  background: #005fcc;
+}
+
+/* -----------------------------------
+   BLOG SECTION
+----------------------------------- */
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.blog-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+.blog-info {
+  padding: 20px;
+}
+
+.blog-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.read-more {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------------
+   CONTACT SECTION
+----------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.contact-form .btn {
+  width: 100%;
+}
+
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
+.site-footer {
+  text-align: center;
+  padding: 25px;
+  background: #f1f3f6;
+  font-size: 0.95rem;
+  color: #555;
+  position: relative;
+}
+
+.back-top {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-top:hover {
+  background: #005fcc;
+}
+
+/* -----------------------------------
+   LOADER
+----------------------------------- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.6s;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -----------------------------------
+   DARK MODE
+----------------------------------- */
+body.dark {
+  background: #121212;
+  color: #ddd;
+}
+
+body.dark .site-header {
+  background: rgba(20, 20, 20, 0.9);
+}
+
+body.dark .project-card,
+body.dark .blog-card {
+  background: #1e1e1e;
+  color: #ccc;
+}
+
+body.dark .btn-outline {
+  border-color: #66aaff;
+  color: #66aaff;
+}
+
+body.dark .btn-outline:hover {
+  background: #66aaff;
+  color: #000;
+}
+
+body.dark .site-footer {
+  background: #1a1a1a;
+}
+
+/* -----------------------------------
+   RESPONSIVE
+----------------------------------- */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}
+/* ==========================
+   ABOUT PAGE ENHANCEMENTS
+   ========================== */
+
+/* Hero About Section */
+.about-hero {
+  background: linear-gradient(135deg, var(--accent) 0%, #1e1e2f 80%);
+  color: #fff;
+  padding: 100px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.about-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: var(--bg);
+  clip-path: ellipse(70% 100% at 50% 100%);
+}
+.about-hero .hero-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.about-hero-img img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border: 5px solid #fff;
+  object-fit: cover;
+}
+.about-hero .hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.about-hero .hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+.about-hero .hero-text {
+  max-width: 550px;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* About Section */
+.about-section {
+  background: var(--bg);
+  color: var(--text);
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+}
+.about-right {
+  flex: 1;
+  min-width: 320px;
+}
+.about-right h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+.about-right h3 {
+  margin-top: 30px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.about-right p {
+  line-height: 1.8;
+  margin: 10px 0;
+  color: var(--text);
+}
+
+/* Skill Bars */
+.skill-bars {
+  margin-top: 15px;
+}
+.skill {
+  margin-bottom: 12px;
+}
+.skill span {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.bar {
+  height: 10px;
+  background: #e4e4e4;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bar div {
+  height: 100%;
+  background: var(--accent);
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+.skill:hover .bar div {
+  width: 100% !important;
+}
+
+/* Timeline */
+.timeline {
+  margin-top: 20px;
+  position: relative;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+}
+.timeline-item::before {
+  content: "⏺";
+  position: absolute;
+  left: -12px;
+  top: 2px;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+.timeline-item .time {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.timeline-item h4 {
+  margin-top: 5px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.timeline-item p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s, filter 0.3s;
+  filter: grayscale(1);
+}
+.social-links a:hover img {
+  transform: scale(1.15);
+  filter: grayscale(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero .hero-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-hero-img img {
+    width: 220px;
+    height: 220px;
+  }
+  .about-right {
+    text-align: left;
+  }
+}
+/* Skill Bars */
+.skill-bars {
+  margin-top: 15px;
+  max-width: 600px;
+}
+.skill {
+  margin-bottom: 20px;
+}
+.skill span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.bar {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  width: 0;
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
+body.dark .bar {
+  background: #1e293b;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.about-left {
+  text-align: center;
+}
+.about-left img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-left img {
+    width: 200px;
+  }
+}
+/* Fix layout hero bị dư khoảng trống hai bên */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f8ff, #ffffff);
+  padding: 0 5%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr; /* cân lại tỉ lệ giữa ảnh và chữ */
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px; /* giới hạn khung giữa màn hình */
+  margin: 0 auto;
+}
+
+/* Fix hình avatar và chữ cho cân đối */
+.hero-avatar {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* Giúp phần chữ không bị dồn sang phải */
+.hero-text {
+  text-align: left;
+  max-width: 520px;
+}
+
+/* Responsive fix cho màn nhỏ */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    max-width: 90%;
+  }
+  .hero-avatar {
+    margin: 0 auto 30px;
+  }
+}
+
+/* ====== FIX: Chữ mô tả about-hero bị mất ====== */
+
+/* Đảm bảo chữ nằm trên overlay */
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  color: #111; /* mặc định chữ tối, phù hợp nền sáng */
+  z-index: 1;
+}
+.about-hero * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Sửa lớp nền (overlay) không che chữ */
+.about-hero::after {
+  z-index: 0;
+  opacity: 0.15; /* làm mờ nhẹ thay vì che hết chữ */
+  background: #000; /* lớp tối nhẹ phía dưới, giúp chữ nổi hơn */
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: none; /* bỏ clip-path nếu muốn nền mượt */
+}
+
+/* Giữ màu chữ dễ đọc */
+.about-hero .hero-title {
+  color: #0A66C2; /* xanh nổi bật */
+  font-weight: 700;
+}
+
+.about-hero .hero-subtitle {
+  color: #2C3E50;
+  opacity: 0.95;
+  font-weight: 600;
+}
+
+.about-hero .hero-text {
+  color: #2C3E50;
+  opacity: 1; /* đảm bảo không mờ */
+  line-height: 1.8;
+}
+
+/* Khi dark mode */
+body.dark .about-hero {
+  color: #eee;
+}
+body.dark .about-hero::after {
+  background: #000;
+  opacity: 0.4;
+}
+body.dark .about-hero .hero-text {
+  color: #e0e6f0;
+}
+
+.about-section {
+  padding: 5rem 10%;
+  background: var(--bg-color, #fafafa);
+  color: var(--text-color, #333);
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1 1 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  flex: 1 1 55%;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color, #0078ff);
+}
+
+/* Hiệu ứng xuất hiện */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* =============================
+   DESKTOP OPTIMIZATION
+   (Phóng to cho màn hình máy tính)
+============================= */
+
+/* Hero Section */
+.hero {
+  padding: 0 8%;
+}
+
+.hero-grid {
+  max-width: 1400px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+}
+
+.hero-avatar {
+  max-width: 480px; /* tăng kích thước ảnh */
+  border-radius: 50%;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  line-height: 1.3;
+}
+
+.hero-text h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  line-height: 2;
+  max-width: 700px;
+}
+
+/* Nút CTA */
+.hero-ctas .btn,
+.hero-ctas .btn-outline {
+  font-size: 1.05rem;
+  padding: 14px 32px;
+}
+
+/* About Section */
+.about-section {
+  padding: 6rem 10%;
+}
+
+.about-container {
+  gap: 5rem;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.about-image img {
+  width: 380px;
+  height: 380px;
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 2;
+  max-width: 650px;
+}
+
+.about-text h2 {
+  font-size: 2.4rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+}
+
+/* Skill Bars và Timeline cũng phóng to nhẹ */
+.skill span {
+  font-size: 1rem;
+}
+.bar {
+  height: 14px;
+}
+
+.timeline {
+  padding-left: 25px;
+}
+.timeline-item h4 {
+  font-size: 1.1rem;
+}
+
+/* Footer */
+.site-footer {
+  font-size: 1.05rem;
+  padding: 40px;
+}
+
+/* =============================
+   Màn hình lớn (≥1600px)
+============================= */
+@media (min-width: 1600px) {
+  .hero-grid {
+    max-width: 1600px;
+    gap: 6rem;
+  }
+
+  .hero-avatar {
+    max-width: 520px;
+  }
+
+  .hero-text h1 {
+    font-size: 3.6rem;
+  }
+
+  .hero-text p {
+    font-size: 1.25rem;
+  }
+
+  .about-container {
+    max-width: 1500px;
+    gap: 6rem;
+  }
+
+  .about-image img {
+    width: 420px;
+    height: 420px;
+  }
+
+  .about-text {
+    font-size: 1.2rem;
+    line-height: 2.1;
+  }
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài viết chi tiết — Nguyễn Lê Gia Huy</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- PrismJS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #f9fafc;
+      --text: #222;
+      --accent: #0078ff;
+      --card-bg: #fff;
+      --border: #ddd;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #e6e6e6;
+      --card-bg: #1e1e1e;
+      --border: #333;
+      --accent: #4ea8ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Merriweather', serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--card-bg);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    article {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    .post-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.3rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .post-meta {
+      color: gray;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .post-body p { margin-bottom: 1rem; font-size: 1rem; }
+    .post-body h3 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--accent);
+      margin: 1.5rem 0 .8rem;
+    }
+    pre {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--accent);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 1.5rem;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    aside {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+    }
+    .side-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    .side-card h3 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .related-list a {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      padding: .4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    .related-list a:hover { color: var(--accent); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: gray;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">← Nguyễn Lê Gia Huy</a>
+    <button id="darkModeToggle" class="icon-btn" title="Chế độ tối">🌙</button>
+  </header>
+
+  <main>
+    <article id="postContent"></article>
+
+    <aside>
+      <div class="side-card">
+        <h3>Bài viết liên quan</h3>
+        <div class="related-list" id="relatedPosts"></div>
+      </div>
+      <div class="side-card">
+        <h3>Chia sẻ bài viết</h3>
+        <a href="#" class="btn-outline">📤 Facebook</a><br><br>
+        <a href="#" class="btn-outline">🐦 Twitter</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 Nguyễn Lê Gia Huy — Blog lập trình Java & JavaScript</p>
+  </footer>
+
+  <script>
+    const posts = {
+      "java-oop": {
+        title: "Hiểu sâu về Lập trình Hướng đối tượng trong Java",
+        date: "15/10/2025",
+        tags: ["Java", "OOP"],
+        content: `
+        <p>Lập trình hướng đối tượng là nền tảng quan trọng giúp Java linh hoạt, dễ bảo trì và mở rộng.</p>
+        <h3>Ví dụ minh họa</h3>
+        <pre><code class="language-java">
+class Animal {
+  void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+  void sound() { System.out.println("Woof!"); }
+}
+public class Main {
+  public static void main(String[] args) {
+    Animal a = new Dog();
+    a.sound();
+  }
+}
+        </code></pre>
+        <p>Kết quả: <code>Woof!</code> — thể hiện tính đa hình trong Java.</p>`
+      },
+
+      "spring-api": {
+        title: "Xây dựng REST API chuyên nghiệp với Spring Boot",
+        date: "20/10/2025",
+        tags: ["Java", "Spring Boot"],
+        content: `
+        <p>Spring Boot giúp xây dựng REST API dễ dàng và nhanh chóng nhờ cấu hình tự động.</p>
+        <pre><code class="language-java">
+@RestController
+@RequestMapping("/api")
+public class HelloController {
+  @GetMapping("/hello")
+  public String hello() {
+    return "Hello from API!";
+  }
+}
+        </code></pre>`
+      },
+
+      "java-stream": {
+        title: "Sử dụng Stream API trong Java 8+",
+        date: "18/10/2025",
+        tags: ["Java", "Performance"],
+        content: `
+        <p>Stream API giúp xử lý dữ liệu theo phong cách hàm, ngắn gọn và hiệu quả.</p>
+        <pre><code class="language-java">
+List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5);
+nums.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
+        </code></pre>`
+      },
+
+      "java-exception": {
+        title: "Xử lý ngoại lệ hiệu quả trong Java",
+        date: "14/10/2025",
+        tags: ["Java", "Exception"],
+        content: `
+        <p>Xử lý ngoại lệ giúp chương trình không bị dừng đột ngột và dễ kiểm soát lỗi hơn.</p>
+        <pre><code class="language-java">
+try {
+  int result = 10 / 0;
+} catch (ArithmeticException e) {
+  System.out.println("Không thể chia cho 0!");
+} finally {
+  System.out.println("Kết thúc xử lý.");
+}
+        </code></pre>`
+      },
+
+      "java-thread": {
+        title: "Lập trình đa luồng (Multithreading) trong Java",
+        date: "13/10/2025",
+        tags: ["Java", "Thread"],
+        content: `
+        <p>Đa luồng giúp tận dụng tài nguyên CPU tốt hơn và xử lý song song các tác vụ.</p>
+        <pre><code class="language-java">
+class MyThread extends Thread {
+  public void run() {
+    System.out.println("Luồng đang chạy: " + Thread.currentThread().getName());
+  }
+}
+public class Main {
+  public static void main(String[] args) {
+    new MyThread().start();
+  }
+}
+        </code></pre>`
+      },
+
+      "js-async": {
+        title: "Hiểu về Bất đồng bộ trong JavaScript (Async/Await)",
+        date: "11/10/2025",
+        tags: ["JavaScript", "Async"],
+        content: `
+        <p>Async/Await giúp viết mã bất đồng bộ dễ đọc và dễ bảo trì hơn.</p>
+        <pre><code class="language-javascript">
+async function fetchData() {
+  try {
+    const res = await fetch('https://api.example.com/data');
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+        </code></pre>`
+      },
+
+      "js-dom": {
+        title: "Thao tác DOM trong JavaScript hiện đại",
+        date: "09/10/2025",
+        tags: ["JavaScript", "Frontend"],
+        content: `
+        <p>DOM giúp JavaScript tương tác trực tiếp với cấu trúc HTML trên trang web.</p>
+        <pre><code class="language-javascript">
+document.querySelector("button").addEventListener("click", () => {
+  alert("Nút đã được bấm!");
+});
+        </code></pre>`
+      },
+
+      "js-es6": {
+        title: "Những tính năng nổi bật của ES6",
+        date: "07/10/2025",
+        tags: ["JavaScript", "ES6"],
+        content: `
+        <p>ES6 mang đến nhiều cải tiến mạnh mẽ giúp viết mã JavaScript dễ dàng hơn.</p>
+        <pre><code class="language-javascript">
+const greet = name => \`Xin chào, \${name}\`;
+console.log(greet("Gia Huy"));
+        </code></pre>`
+      },
+
+      "node-server": {
+        title: "Tạo Web Server với Node.js và Express",
+        date: "05/10/2025",
+        tags: ["Node.js", "Backend"],
+        content: `
+        <p>Express là framework phổ biến nhất giúp xây dựng server với Node.js nhanh chóng.</p>
+        <pre><code class="language-javascript">
+import express from "express";
+const app = express();
+app.get("/", (req, res) => res.send("Xin chào Node Server!"));
+app.listen(3000);
+        </code></pre>`
+      }
+    };
+
+    function renderPost() {
+      const id = new URLSearchParams(location.search).get('id');
+      const post = posts[id];
+      const container = document.getElementById('postContent');
+      const related = document.getElementById('relatedPosts');
+
+      if (!post) {
+        container.innerHTML = `<h2>Không tìm thấy bài viết</h2><p><a href="index.html#blog" class="btn-outline">← Quay lại Blog</a></p>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <h1 class="post-title">${post.title}</h1>
+        <p class="post-meta">📅 ${post.date} • ${post.tags.join(', ')}</p>
+        <div class="post-body">${post.content}</div>
+        <a href="index.html#blog" class="btn-outline">← Quay lại Blog</a>
+      `;
+
+      related.innerHTML = Object.entries(posts)
+        .filter(([key]) => key !== id)
+        .slice(0, 5)
+        .map(([key, p]) => `<a href="post.html?id=${key}">${p.title}</a>`)
+        .join('');
+
+      Prism.highlightAll();
+      gsap.from(".post-title", {opacity: 0, y: -20, duration: 0.6});
+      gsap.from(".post-body", {opacity: 0, y: 30, delay: 0.2, duration: 0.8});
+    }
+
+    document.addEventListener("DOMContentLoaded", renderPost);
+
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  </script>
+</body>
+</html>

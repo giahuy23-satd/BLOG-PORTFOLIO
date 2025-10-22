@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nguyễn Lê Gia Huy — Portfolio & Blog</title>
+  <meta name="description" content="Portfolio & Blog của Nguyễn Lê Gia Huy — Full Stack Developer, AI enthusiast." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Thư viện hiệu ứng -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Đang tải Portfolio...</p>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap header-flex">
+      <div class="brand">
+        <a href="#" class="logo">Nguyễn Lê Gia Huy</a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="#home">Trang chủ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="#projects">Dự án</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="darkModeToggle" class="icon-btn" aria-label="Đổi giao diện">🌙</button>
+        <button id="menuToggle" class="icon-btn mobile-only">☰</button>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <!-- HERO -->
+  <section id="home" class="hero section">
+    <div class="wrap hero-grid">
+      <div class="hero-left">
+        <img src="./images/images.jpg" alt="Nguyễn Lê Gia Huy" class="hero-avatar">
+      </div>
+      <div class="hero-right">
+        <h1>Xin chào 👋, tôi là <span class="highlight">Nguyễn Lê Gia Huy</span></h1>
+        <h2><span id="typing"></span></h2>
+        <p>
+          Tôi là <b>Full Stack Developer</b> đam mê trí tuệ nhân tạo và tối ưu trải nghiệm người dùng.
+          Trang này là nơi tôi chia sẻ <b>dự án, bài viết, và câu chuyện công nghệ.</b>
+        </p>
+        <div class="hero-ctas">
+          <button class="btn" onclick="scrollToSection('projects')">🚀 Xem Dự án</button>
+          <button class="btn-outline" onclick="scrollToSection('blog')">📝 Đọc Blog</button>
+          <button class="btn ghost" onclick="downloadCV()">📄 Tải CV</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="wrap about-container">
+    <!-- ẢNH BÊN TRÁI -->
+    <div class="about-image" data-animate="fade-left">
+      <img src="./images/ảnh.png" alt="Nguyễn Lê Gia Huy">
+    </div>
+
+    <!-- MÔ TẢ BÊN PHẢI -->
+    <div class="about-text" data-animate="fade-right">
+      <h2>Về Tôi</h2>
+      <p>
+        Tôi là một lập trình viên trẻ đầy đam mê với công nghệ, luôn tìm tòi cách ứng dụng lập trình vào giải quyết vấn đề thực tế.  
+        Hành trình của tôi bắt đầu từ những dự án nhỏ tự học cho đến việc xây dựng hệ thống web hoàn chỉnh với front-end và back-end.  
+        Tôi đặc biệt yêu thích việc tối ưu trải nghiệm người dùng và nghiên cứu các ứng dụng của trí tuệ nhân tạo trong đời sống.  
+        Bên cạnh việc lập trình, tôi cũng quan tâm đến thiết kế giao diện và trải nghiệm người dùng (UI/UX).  
+        Mục tiêu dài hạn của tôi là trở thành một Full Stack Developer có thể kết hợp tư duy logic với khả năng sáng tạo.  
+        Tôi tin rằng công nghệ chỉ thật sự có ý nghĩa khi được tạo ra để phục vụ con người.  
+        Ngoài công việc, tôi thích viết blog chia sẻ kiến thức, đọc sách công nghệ và khám phá ý tưởng mới mỗi ngày.  
+        Với tôi, mỗi dòng code đều là một bước nhỏ trong hành trình học hỏi và cống hiến cho cộng đồng lập trình viên.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- PROJECTS -->
+ <section id="projects" class="section">
+  <div class="wrap">
+    <h2 class="section-title">Dự án nổi bật</h2>
+    <div class="project-list">
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>CVision</h3>
+          <p>Hệ thống lọc CV theo năng lực sử dụng trí tuệ nhân tạo.</p>
+          <a href="#" class="btn-small">Xem chi tiết</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>CashSave</h3>
+          <p>Ứng dụng quản lý chi tiêu hằng tháng</p>
+          <a href="#" class="btn-small">Xem chi tiết</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>RepairTrack</h3>
+          <p>Hệ thống quản lý bảo trì & sửa chữa thiết bị</p>
+          <a href="#" class="btn-small">Xem chi tiết</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- BLOG -->
+  <section id="blog" style="background: linear-gradient(180deg, #f7f9fc 0%, #edf1f7 100%); padding: 100px 0;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 20px;">
+    <h2 style="text-align:center; font-size:2.6rem; font-weight:700; color:#0f172a; margin-bottom:60px; letter-spacing:-0.5px;">
+      Bài viết chuyên sâu về <span style="color:#1a73e8;">Java & JavaScript</span>
+      <span style="display:block; width:90px; height:4px; background:#1a73e8; margin:14px auto 0; border-radius:2px;"></span>
+    </h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px;">
+      
+      <!-- Java 1 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Hiểu sâu về Lập trình Hướng đối tượng trong Java</h3>
+          <p style="color:#475569;">Khám phá 4 nguyên tắc OOP với ví dụ thực tế, giúp viết mã Java chuyên nghiệp và dễ mở rộng hơn.</p>
+          <a href="post.html?id=java-oop" style="display:inline-block; margin-top:16px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Java 2 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Xây dựng REST API chuyên nghiệp với Spring Boot</h3>
+          <p style="color:#475569;">Spring Boot giúp phát triển API nhanh chóng, bảo mật và dễ bảo trì — bài viết hướng dẫn chi tiết từng bước.</p>
+          <a href="post.html?id=spring-api" style="display:inline-block; margin-top:16px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Java 3 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Sử dụng Stream API trong Java 8+</h3>
+          <p style="color:#475569;">Làm việc với dữ liệu theo phong cách hàm, filter/map/collect giúp code ngắn gọn và tối ưu hơn.</p>
+         
+          <a href="post.html?id=java-stream" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Java 4 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Xử lý ngoại lệ hiệu quả trong Java</h3>
+          <p style="color:#475569;">Tìm hiểu try-catch-finally, custom exception và các nguyên tắc giúp ứng dụng ổn định hơn.</p>
+          
+          <a href="post.html?id=java-exception" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- Java 5 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Lập trình đa luồng (Multithreading) trong Java</h3>
+          <p style="color:#475569;">Nắm bắt Thread, Runnable và đồng bộ hóa dữ liệu để khai thác tối đa hiệu năng ứng dụng.</p>
+          
+          <a href="post.html?id=java-thread" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- JS 1 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Hiểu về Bất đồng bộ trong JavaScript (Async/Await)</h3>
+          <p style="color:#475569;">Async/Await giúp mã JavaScript gọn gàng, dễ kiểm soát Promise và tránh callback hell.</p>
+          
+          <a href="post.html?id=js-async" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- JS 2 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Thao tác DOM trong JavaScript hiện đại</h3>
+          <p style="color:#475569;">Học cách thay đổi phần tử HTML, thêm event và tạo tương tác động không cần framework.</p>
+          
+          <a href="post.html?id=js-dom" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- JS 3 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Những tính năng nổi bật của ES6</h3>
+          <p style="color:#475569;">Khám phá let/const, arrow function, destructuring và template literals giúp JS hiện đại hơn.</p>
+          
+          <a href="post.html?id=js-es6" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+      <!-- JS 4 -->
+      <article class="blog-card" style="background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;">
+        <div style="border-bottom:3px solid #1a73e8; height:10px;"></div>
+        <div style="padding:28px;">
+          <h3 style="font-size:1.3rem; color:#0f172a; font-weight:600; margin-bottom:12px;">Tạo Web Server với Node.js và Express</h3>
+          <p style="color:#475569;">Node.js cho phép viết backend bằng JavaScript — hướng dẫn tạo REST API cơ bản chỉ trong vài phút.</p>
+          
+          <a href="post.html?id=node-server" style="display:inline-block; margin-top:12px; color:#1a73e8; font-weight:600;">Đọc thêm →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+  <script>
+    document.querySelectorAll('.blog-card').forEach(card=>{
+      card.addEventListener('mouseover',()=>{
+        card.style.transform='translateY(-6px)';
+        card.style.boxShadow='0 12px 28px rgba(0,0,0,0.15)';
+      });
+      card.addEventListener('mouseout',()=>{
+        card.style.transform='translateY(0)';
+        card.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';
+      });
+    });
+  </script>
+</section>
+
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2>Liên hệ</h2>
+        <p>📧 <a href="mailto:legiahuy.dev@gmail.com">nguyenlegiahuy0601@gmail.com</a></p>
+        <p>🌐 <a href="https://github.com/" target="_blank">GitHub</a> | <a href="https://linkedin.com/" target="_blank">LinkedIn</a></p>
+      </div>
+
+      <form id="contactForm" class="contact-form" onsubmit="handleContact(event)">
+        <input type="text" id="cf-name" placeholder="Họ và tên" required>
+        <input type="email" id="cf-email" placeholder="Email" required>
+        <textarea id="cf-message" rows="5" placeholder="Lời nhắn..." required></textarea>
+        <button class="btn" type="submit">Gửi tin nhắn</button>
+        <p id="contactStatus" class="muted"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 Nguyễn Lê Gia Huy - Trang chủ</p>
+    <a id="backToTop" class="back-top" onclick="scrollToTop()">↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
