@@ -7,6 +7,8 @@
   box-sizing: border-box;
 }
 
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -681,6 +683,8 @@ body.dark .bar {
     width: 200px;
   }
 }
+
+
 /* Fix layout hero bị dư khoảng trống hai bên */
 .hero {
   display: flex;
@@ -994,4 +998,5 @@ body.dark .about-hero .hero-text {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
+
 
