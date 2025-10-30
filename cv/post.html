@@ -199,6 +199,23 @@
     <p>© 2025 Nguyễn Lê Gia Huy — Blog lập trình Java & JavaScript</p>
   </footer>
 
+  <!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài viết - Blog Java & JS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <main id="postContent" class="post-container"></main>
+  <aside id="relatedPosts" class="related-posts"></aside>
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
+
   <script>
     const posts = {
       "java-oop": {
@@ -206,7 +223,21 @@
         date: "15/10/2025",
         tags: ["Java", "OOP"],
         content: `
-        <p>Lập trình hướng đối tượng là nền tảng quan trọng giúp Java linh hoạt, dễ bảo trì và mở rộng.</p>
+        <p>Lập trình hướng đối tượng là nền tảng quan trọng giúp Java linh hoạt, dễ bảo trì và mở rộng. 
+        Đây là mô hình lập trình mô phỏng các thực thể trong thế giới thực thông qua các đối tượng (object) 
+        và lớp (class). Mỗi đối tượng có dữ liệu (thuộc tính) và hành vi (phương thức) riêng.</p>
+
+        <p>Java là ngôn ngữ lập trình hướng đối tượng thuần túy, mọi thứ trong Java đều bắt đầu từ lớp (class). 
+        Cách tiếp cận này giúp mã nguồn dễ tổ chức, dễ bảo trì, đồng thời tăng khả năng tái sử dụng trong các dự án lớn.</p>
+
+        <h3>4 nguyên lý chính của OOP trong Java</h3>
+        <ul>
+          <li><strong>Encapsulation (Đóng gói):</strong> Giúp ẩn chi tiết bên trong của lớp, chỉ cung cấp các phương thức công khai để thao tác với dữ liệu.</li>
+          <li><strong>Inheritance (Kế thừa):</strong> Cho phép lớp con kế thừa thuộc tính và hành vi của lớp cha, giúp tái sử dụng mã.</li>
+          <li><strong>Polymorphism (Đa hình):</strong> Cùng một phương thức nhưng có thể hoạt động khác nhau tùy đối tượng gọi nó.</li>
+          <li><strong>Abstraction (Trừu tượng):</strong> Chỉ hiển thị những gì cần thiết, ẩn đi chi tiết triển khai không quan trọng.</li>
+        </ul>
+
         <h3>Ví dụ minh họa</h3>
         <pre><code class="language-java">
 class Animal {
@@ -222,7 +253,63 @@ public class Main {
   }
 }
         </code></pre>
-        <p>Kết quả: <code>Woof!</code> — thể hiện tính đa hình trong Java.</p>`
+        <p>Kết quả: <code>Woof!</code> — thể hiện tính đa hình (polymorphism) trong Java, khi phương thức <code>sound()</code> 
+        của lớp <code>Dog</code> được gọi thay vì lớp <code>Animal</code>.</p>
+
+        <h3>Ví dụ khác về kế thừa và đóng gói</h3>
+        <pre><code class="language-java">
+class Person {
+  private String name;
+  private int age;
+
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public void introduce() {
+    System.out.println("Tôi tên là " + name + ", " + age + " tuổi.");
+  }
+}
+
+class Student extends Person {
+  private String major;
+
+  public Student(String name, int age, String major) {
+    super(name, age);
+    this.major = major;
+  }
+
+  public void study() {
+    System.out.println("Đang học chuyên ngành: " + major);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Student s = new Student("An", 20, "Công nghệ thông tin");
+    s.introduce();
+    s.study();
+  }
+}
+        </code></pre>
+        <p>Kết quả:</p>
+        <pre><code>
+          Tôi tên là Huy, 21 tuổi.
+          Đang học chuyên ngành: Công nghệ thông tin
+        </code></pre>
+        <p>Ví dụ này minh họa tính <strong>kế thừa</strong> khi lớp <code>Student</code> mở rộng lớp <code>Person</code>, 
+        đồng thời thể hiện <strong>đóng gói</strong> khi các thuộc tính <code>name</code> và <code>age</code> được bảo vệ bằng phạm vi truy cập <code>private</code>.</p>
+
+        <h3>Ứng dụng thực tế</h3>
+        <p>OOP được ứng dụng rộng rãi trong các hệ thống phần mềm lớn như phần mềm quản lý, ứng dụng web, hoặc game. 
+        Ví dụ: trong phần mềm quản lý thư viện, ta có thể định nghĩa các lớp như <code>Book</code>, <code>Reader</code>, 
+        <code>Librarian</code> và cho chúng kế thừa từ lớp <code>Person</code>. Mỗi lớp có thể mở rộng thêm hành vi riêng phù hợp với vai trò của mình.</p>
+
+        <h3>Kết luận</h3>
+        <p>Lập trình hướng đối tượng giúp Java trở thành một ngôn ngữ mạnh mẽ, dễ mở rộng và dễ bảo trì. 
+        Hiểu rõ OOP là nền tảng vững chắc để học các công nghệ nâng cao hơn như Spring, Hibernate, và Java EE.</p>
+        `
       },
 
       "spring-api": {
@@ -390,3 +477,4 @@ app.listen(3000);
   </script>
 </body>
 </html>
+
